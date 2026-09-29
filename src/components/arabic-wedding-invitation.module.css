@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&family=Reem+Kufi:wght@500;700&display=swap");
+
+.invitation {
+  --burgundy: #47101c;
+  --burgundy-deep: #180308;
+  --burgundy-mid: #2f0912;
+  --gold: #c5a059;
+  --gold-light: #dfba73;
+  --gold-bright: #f4da9b;
+  --gold-dark: #8c6928;
+  --cream: #fdfbf7;
+  --cream-warm: #f7f2e8;
+  --cream-border: #e9dec7;
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--burgundy-deep);
+  color: var(--cream);
+  font-family: Amiri, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+:global(body:has(.dearly-arabic-invitation-page) .site-header),
+:global(body:has(.dearly-arabic-invitation-page) .site-footer) {
+  display: none;
+}
+
+.particles {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+}
+
+.particlesVisible { opacity: 1; }
+
+.envelopeScreen {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+  background-image: linear-gradient(rgba(32, 3, 10, 0.64), rgba(18, 2, 7, 0.8)), url("/floral-bg-optimized.jpg");
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.2s ease, visibility 1.2s ease, transform 1.2s ease;
+}
+
+.envelopeScreenOpening { opacity: 0; transform: scale(1.025); visibility: hidden; pointer-events: none; }
+
+.envelopeHeading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+  animation: title-float 2.5s ease-in-out infinite;
+}
+
+.envelopeHeading p {
+  margin: 0;
+  color: var(--gold-light);
+  font-family: "Aref Ruqaa", Amiri, serif;
+  font-size: 1.65rem;
+  text-shadow: 0 0 25px rgba(223, 186, 115, 0.6), 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.envelopeHeading span { color: rgba(253, 251, 247, 0.75); font-size: 1.05rem; }
+
+.envelopeScene {
+  position: relative;
+  z-index: 2;
+  width: min(560px, 92vw);
+  aspect-ratio: 476 / 350;
+  border: 0;
+  border-radius: 4px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 700ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.envelopePhoto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: center / cover no-repeat url("/real_envelope_exact.jpg");
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+  transition: transform 350ms ease;
+}
+
+.envelopeScene:hover .envelopePhoto { transform: translateY(-3px); }
+.envelopeSceneOpening { transform: translateY(-8px) scale(1.045); opacity: 0; pointer-events: none; }
+
+.main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background-color: var(--burgundy-deep);
+  background-image: linear-gradient(rgba(38, 3, 11, 0.28), rgba(18, 2, 7, 0.5)), url("/floral-bg-optimized.jpg");
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.mainVisible { opacity: 1; }
+.page { position: relative; z-index: 2; width: min(100%, 768px); margin: 0 auto; padding: 0 24px 60px; }
+
+.hero { padding: 68px 0 24px; }
+.bismillah { margin-bottom: 1.4rem; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2.15rem; text-shadow: 0 0 35px rgba(223, 186, 115, 0.5), 0 2px 10px rgba(0, 0, 0, 0.9); }
+
+.divider { display: flex; align-items: center; justify-content: center; gap: 11px; margin: 1.35rem 0; color: var(--gold); }
+.divider::before,
+.divider::after { width: min(20vw, 130px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); content: ""; }
+.divider i { width: 6px; height: 6px; transform: rotate(45deg); background: var(--gold-light); box-shadow: 0 0 12px rgba(223, 186, 115, 0.45); }
+.divider svg { width: 21px; height: 21px; fill: var(--gold); stroke-width: 1; }
+
+.heroPoem { max-width: 580px; margin: 1.25rem auto; color: rgba(253, 251, 247, 0.94); font-size: 1.35rem; line-height: 2; }
+.heroPoem p { margin: 0.2rem 0; }
+.eventLead { margin-top: 0.9rem !important; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 1.65rem; text-shadow: 0 0 20px rgba(223, 186, 115, 0.45); }
+.hero h1 { margin: 0.3rem 0; color: var(--cream); font-family: "Aref Ruqaa", Amiri, serif; font-size: clamp(3.4rem, 12vw, 5.8rem); line-height: 1.2; text-shadow: 0 0 45px rgba(223, 186, 115, 0.45), 0 4px 20px rgba(0, 0, 0, 0.95); }
+.tagline { color: var(--gold-light); font-size: 1.5rem; font-style: italic; }
+
+.coupleArtwork { display: flex; flex-direction: column; align-items: center; margin: 2rem auto 0; padding: 0 12px; }
+.crest { position: relative; display: grid; width: 112px; height: 112px; place-items: center; margin-bottom: 1.2rem; }
+.crest svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.85)); }
+.crest span { position: relative; z-index: 1; padding-bottom: 4px; background: linear-gradient(135deg, #f4da9b, #dfba73 45%, #997736); background-clip: text; color: transparent; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8)); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2rem; font-weight: 700; }
+.heroDate { margin-bottom: 1.2rem; }
+.heroDate p { margin: 0; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 1.9rem; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9); }
+.heroDate span { color: var(--gold); font-family: Cairo, sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.17em; }
+.hallFrame { position: relative; width: min(100%, 500px); overflow: hidden; border: 1px solid rgba(223, 186, 115, 0.3); border-radius: 14px; padding: 2px; background: linear-gradient(180deg, rgba(223, 186, 115, 0.4), transparent 70%); box-shadow: 0 25px 70px rgba(0, 0, 0, 0.72); }
+.hallFrame::after { position: absolute; inset: 4px; border: 1px solid rgba(223, 186, 115, 0.16); border-radius: 11px; content: ""; pointer-events: none; }
+.hallArtwork { display: block; width: 100%; height: auto; border-radius: 11px; }
+
+.quran { margin: 2.5rem auto; border: 1px solid rgba(197, 160, 89, 0.32); border-radius: 16px; padding: 2.1rem 1.4rem; background: rgba(12, 2, 6, 0.68); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), inset 0 0 30px rgba(197, 160, 89, 0.06); backdrop-filter: blur(12px); }
+.quranOrnament { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.1rem; color: var(--gold); }
+.quranOrnament i { width: 45px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.quranOrnament svg { width: 18px; height: 18px; fill: var(--gold); opacity: 0.85; }
+.quran blockquote { margin: 0; color: var(--cream); font-family: "Aref Ruqaa", Amiri, serif; font-size: clamp(1.45rem, 5vw, 2.05rem); line-height: 1.95; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
+.quran cite { display: block; margin-top: 1rem; color: var(--gold-light); font-size: 1.1rem; font-style: normal; }
+
+.invitationCopy { padding: 2rem 0; }
+.sectionLabel { margin: 0 0 0.8rem; color: var(--gold); font-family: Cairo, sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; }
+.invitation h2 { margin: 0 0 1rem; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2.3rem; font-weight: 400; text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8); }
+.invitationCopy > p:last-child { margin: 0 auto; color: rgba(253, 251, 247, 0.92); font-size: 1.4rem; line-height: 2.15; }
+.quote { padding: 1rem 0; }
+.quote p { margin: 1.4rem 0; color: var(--cream); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2rem; line-height: 1.6; text-shadow: 0 0 35px rgba(223, 186, 115, 0.4); }
+
+.countdownSection { padding: 2rem 0; }
+.countdownSection h2 { color: var(--cream); font-size: 2rem; }
+.countdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 1.8rem; direction: ltr; }
+.countdownItem { display: flex; width: 82px; flex-direction: column; align-items: center; }
+.countdownValue { position: relative; display: grid; width: 82px; height: 90px; place-items: center; border: 1px solid rgba(197, 160, 89, 0.38); border-radius: 12px; background: rgba(12, 2, 6, 0.76); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1); color: var(--cream); font-family: Cairo, sans-serif; font-size: 2.25rem; font-weight: 300; backdrop-filter: blur(10px); }
+.countdownValue::after { position: absolute; top: 50%; right: 8%; left: 8%; height: 1px; background: rgba(197, 160, 89, 0.22); content: ""; }
+.countdownLabel { margin-top: 0.5rem; color: var(--gold-light); font-size: 1.05rem; }
+
+.eventDetails { padding: 2rem 0 0; }
+.detailsHeading { margin-bottom: 2rem; }
+.detailsHeading h2 { margin: 0; font-size: 2.5rem; }
+.detailCard { position: relative; overflow: hidden; margin: 1.3rem 0; border: 1px solid rgba(197, 160, 89, 0.34); border-radius: 18px; padding: 2.2rem 1.4rem; background: rgba(14, 2, 7, 0.74); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.58), inset 0 0 25px rgba(197, 160, 89, 0.05); backdrop-filter: blur(12px); transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease; }
+.detailCard::before { position: absolute; top: 0; right: 12%; left: 12%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); content: ""; }
+.detailCard:hover { transform: translateY(-3px); border-color: rgba(223, 186, 115, 0.6); box-shadow: 0 30px 75px rgba(0, 0, 0, 0.72), 0 0 30px rgba(197, 160, 89, 0.16); }
+.detailIcon { display: grid; width: 54px; height: 54px; place-items: center; margin: 0 auto 0.8rem; border: 1px solid rgba(223, 186, 115, 0.55); border-radius: 50%; background: linear-gradient(135deg, rgba(223, 186, 115, 0.2), rgba(197, 160, 89, 0.07)); color: var(--gold-light); }
+.detailIcon svg { width: 24px; height: 24px; stroke-width: 1.6; }
+.detailLabel { margin: 0; color: var(--gold); font-family: Cairo, sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; }
+.detailCard h3 { margin: 0.2rem 0; color: var(--cream); font-family: "Aref Ruqaa", Amiri, serif; font-size: 1.85rem; font-weight: 400; }
+.detailValue { margin: 0.4rem 0; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2rem; line-height: 1.45; }
+.detailSubvalue { max-width: 520px; margin: 0.2rem auto; color: rgba(253, 251, 247, 0.88); font-size: 1.25rem; line-height: 1.7; }
+.calendar { max-width: 360px; margin: 1.4rem auto 0; color: var(--cream); }
+.calendar > span { display: block; margin-bottom: 0.65rem; color: var(--gold); font-family: Cairo, sans-serif; font-size: 0.8rem; font-weight: 600; }
+.calendarGrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: center; gap: 5px; direction: rtl; }
+.calendarGrid b { color: var(--gold-light); font-family: Cairo, sans-serif; font-size: 0.78rem; }
+.calendarGrid i { display: grid; min-height: 34px; place-items: center; border-radius: 50%; color: rgba(253, 251, 247, 0.86); font-size: 0.95rem; font-style: normal; }
+.calendarGrid .calendarDay { background: linear-gradient(135deg, #dfba73, #997736); color: var(--burgundy-deep); font-weight: 700; box-shadow: 0 0 16px rgba(197, 160, 89, 0.28); }
+.outlineButton { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; margin-top: 1.2rem; border: 1px solid rgba(197, 160, 89, 0.45); border-radius: 999px; padding: 10px 20px; background: rgba(223, 186, 115, 0.1); color: var(--gold-light); cursor: pointer; font: 600 0.84rem Cairo, sans-serif; text-decoration: none; transition: background 250ms ease, transform 250ms ease; }
+.outlineButton:hover { transform: translateY(-2px); background: rgba(223, 186, 115, 0.2); }
+.outlineButton svg { width: 18px; height: 18px; }
+
+.guestMessage { margin: 2rem auto; border: 1px solid rgba(197, 160, 89, 0.28); border-radius: 18px; padding: 2.4rem 1.5rem; background: rgba(12, 2, 6, 0.72); box-shadow: 0 28px 70px rgba(0, 0, 0, 0.62); backdrop-filter: blur(12px); }
+.guestMessage h2 { margin-bottom: 0.6rem; font-size: 2.2rem; }
+.messageLead { margin: 0 auto 1.8rem; color: rgba(253, 251, 247, 0.8); font-size: 1.2rem; }
+.messageForm { display: grid; gap: 1.1rem; text-align: right; }
+.messageForm label { display: grid; gap: 0.45rem; }
+.messageForm label span { color: var(--gold); font-family: Cairo, sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; }
+.messageForm input,
+.messageForm textarea { width: 100%; border: 1px solid rgba(197, 160, 89, 0.32); border-radius: 10px; padding: 12px 16px; background: rgba(255, 255, 255, 0.04); color: var(--cream); font: 1.1rem Amiri, Georgia, serif; transition: border-color 200ms ease, box-shadow 200ms ease; }
+.messageForm input::placeholder,
+.messageForm textarea::placeholder { color: rgba(253, 251, 247, 0.36); }
+.messageForm input:focus,
+.messageForm textarea:focus { outline: none; border-color: var(--gold); background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15); }
+.messageForm textarea { min-height: 120px; resize: vertical; }
+.submitButton { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 10px; padding: 12px; background: linear-gradient(135deg, #dfba73, #c5a059 50%, #997736); box-shadow: 0 6px 25px rgba(197, 160, 89, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35); color: #180308; cursor: pointer; font: 700 1.35rem "Aref Ruqaa", Amiri, serif; transition: transform 250ms ease, box-shadow 250ms ease; }
+.submitButton:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(197, 160, 89, 0.5); }
+.submitButton svg { width: 19px; height: 19px; }
+.successMessage { padding: 1rem 0; color: var(--gold-light); font-size: 1.35rem; }
+.successMessage > span { display: grid; width: 44px; height: 44px; place-items: center; margin: 0 auto 0.8rem; border: 1px solid rgba(223, 186, 115, 0.6); border-radius: 50%; }
+.successMessage > span svg { width: 22px; height: 22px; }
+.successMessage p { margin: 0; }
+.successMessage small { display: block; margin-top: 0.6rem; color: var(--gold); font-size: 1.05rem; }
+
+.invitationFooter { padding: 2rem 0 3rem; }
+.invitationFooter .divider { margin-bottom: 2.2rem; }
+.invitationFooter > p { margin: 0; color: var(--gold-light); font-family: "Aref Ruqaa", Amiri, serif; font-size: 1.8rem; line-height: 1.85; }
+.invitationFooter > strong { display: block; margin-top: 1rem; color: var(--cream); font-family: "Aref Ruqaa", Amiri, serif; font-size: 2.7rem; font-weight: 400; text-shadow: 0 0 25px rgba(223, 186, 115, 0.4); }
+.invitationFooter time { display: block; margin-top: 0.4rem; color: var(--gold-light); font-family: Cairo, sans-serif; font-size: 1rem; opacity: 0.8; }
+
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 800ms ease, transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes title-float { 0%, 100% { transform: translateY(0); opacity: 0.92; } 50% { transform: translateY(-6px); opacity: 1; } }
+
+@media (max-width: 520px) {
+  .page { padding-right: 18px; padding-left: 18px; }
+  .hero { padding-top: 42px; }
+  .bismillah { font-size: 1.8rem; }
+  .heroPoem { font-size: 1.18rem; }
+  .eventLead { font-size: 1.4rem; }
+  .tagline { font-size: 1.25rem; }
+  .quran { padding: 1.6rem 1rem; }
+  .invitation h2 { font-size: 2rem; }
+  .quote p { font-size: 1.65rem; }
+  .countdown { gap: 8px; }
+  .countdownItem,
+  .countdownValue { width: 68px; }
+  .countdownValue { height: 78px; font-size: 1.9rem; }
+  .detailCard { padding: 1.8rem 1rem; }
+  .detailValue { font-size: 1.65rem; }
+  .detailSubvalue { font-size: 1.12rem; }
+  .guestMessage { padding: 1.8rem 1rem; }
+  .envelopeHeading { margin-bottom: 1.5rem; }
+  .envelopeHeading p { font-size: 1.4rem; }
+  .envelopeHeading span { font-size: 0.95rem; }
+}
+
+@media (max-width: 360px) {
+  .page { padding-right: 14px; padding-left: 14px; }
+  .countdown { gap: 6px; }
+  .countdownItem,
+  .countdownValue { width: 62px; }
+  .countdownValue { height: 72px; font-size: 1.7rem; }
+  .outlineButton { padding-right: 12px; padding-left: 12px; font-size: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation *,
+  .invitation *::before,
+  .invitation *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
